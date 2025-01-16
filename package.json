@@ -1,0 +1,39 @@
+{
+  "name": "react-native-feather-toast",
+  "version": "1.0.1",
+  "description": "A lightweight, customizable toast notification library for React Native.",
+  "homepage": "https://github.com/kazimshah39/react-native-feather-toast#readme",
+  "bugs": {
+    "url": "https://github.com/kazimshah39/react-native-feather-toast/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kazimshah39/react-native-feather-toast.git"
+  },
+  "license": "ISC",
+  "author": "kazimshah39",
+  "type": "commonjs",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "tsup"
+  },
+  "keywords": [
+    "react-native",
+    "expo",
+    "toast",
+    "expo-toast",
+    "react-native-toast"
+  ],
+  "devDependencies": {
+    "@types/react": "^18.3.18",
+    "react": "^18.3.1",
+    "react-native": "^0.76.6",
+    "tsup": "^8.3.5",
+    "typescript": "^5.7.3"
+  },
+  "peerDependencies": {
+    "@expo/vector-icons": "^14.0.4"
+  }
+}
