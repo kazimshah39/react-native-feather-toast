@@ -8,11 +8,11 @@ A lightweight, customizable toast notification library for React Native.
 
 ## 🎮 Preview
 
-|                Success Toast                |               Error Toast               |
-| :-----------------------------------------: | :-------------------------------------: |
-| ![Success Toast](src/img/success-toast.gif) | ![Error Toast](src/img/error-toast.gif) |
-|              **Warning Toast**              |             **Info Toast**              |
-| ![Warning Toast](src/img/warning-toast.gif) |  ![Info Toast](src/img/info-toast.gif)  |
+|                                                        Success Toast                                                        |                                                       Error Toast                                                       |
+| :-------------------------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------------------------: |
+| ![Success Toast](https://raw.githubusercontent.com/kazimshah39/react-native-feather-toast/master/src/img/success-toast.gif) | ![Error Toast](https://raw.githubusercontent.com/kazimshah39/react-native-feather-toast/master/src/img/error-toast.gif) |
+|                                                      **Warning Toast**                                                      |                                                     **Info Toast**                                                      |
+| ![Warning Toast](https://raw.githubusercontent.com/kazimshah39/react-native-feather-toast/master/src/img/warning-toast.gif) |  ![Info Toast](https://raw.githubusercontent.com/kazimshah39/react-native-feather-toast/master/src/img/info-toast.gif)  |
 
 ## ✨ Features
 
