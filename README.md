@@ -103,10 +103,10 @@ The package includes four pre-styled toast types:
 ```typescript
 interface ToastConfig {
   title: string;
+  description?: string;
   type?: "success" | "error" | "info" | "warning";
   duration?: number; // default: 3000ms
   position?: "top" | "bottom"; // default: 'top'
-  description?: string;
 }
 ```
 

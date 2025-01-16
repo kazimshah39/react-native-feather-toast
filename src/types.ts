@@ -4,10 +4,10 @@ export type ToastType = "success" | "error" | "info" | "warning";
 
 export interface ToastConfig {
   title: string;
+  description?: string;
   type?: ToastType;
   duration?: number;
   position?: "top" | "bottom";
-  description?: string;
 }
 
 export interface ToastProps {
