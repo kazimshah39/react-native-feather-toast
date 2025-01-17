@@ -1,5 +1,5 @@
-import React, { useCallback, useRef, useState } from "react";
-import { Animated, Dimensions, Platform } from "react-native";
+import React, { useCallback, useRef, useState, useEffect } from "react";
+import { Animated, Dimensions, Platform, StatusBar } from "react-native";
 import type { ToastConfig, ToastType } from "./types";
 
 const { height } = Dimensions.get("window");
@@ -12,6 +12,24 @@ export const useToast = () => {
   const [toastDescription, setToastDescription] = useState<string>("");
   const [toastType, setToastType] = useState<ToastType>("info");
   const [isVisible, setIsVisible] = useState(false);
+
+  // Calculate bottom position based on platform and screen dimensions
+  const getToastPosition = useCallback((position: "top" | "bottom") => {
+    if (position === "top") {
+      return Platform.OS === "ios" ? 50 : 40;
+    }
+
+    // For bottom position, consider:
+    // 1. Status bar height on Android
+    // 2. iPhone home indicator height
+    // 3. General safe padding
+    const statusBarHeight =
+      Platform.OS === "android" ? StatusBar.currentHeight || 0 : 0;
+    const homeIndicatorHeight = Platform.OS === "ios" && height >= 812 ? 34 : 0;
+    const safePadding = 16;
+
+    return height - (statusBarHeight + homeIndicatorHeight + safePadding + 100);
+  }, []);
 
   const handleShowToast = useCallback(
     ({
@@ -33,6 +51,8 @@ export const useToast = () => {
       fadeAnim.setValue(0);
       slideAnim.setValue(position === "top" ? -100 : height);
 
+      const targetPosition = getToastPosition(position);
+
       Animated.parallel([
         Animated.timing(fadeAnim, {
           toValue: 1,
@@ -40,12 +60,7 @@ export const useToast = () => {
           useNativeDriver: true,
         }),
         Animated.spring(slideAnim, {
-          toValue:
-            position === "top"
-              ? Platform.OS === "ios"
-                ? 50
-                : 40
-              : height - 100,
+          toValue: targetPosition,
           speed: 12,
           bounciness: 8,
           useNativeDriver: true,
@@ -71,8 +86,17 @@ export const useToast = () => {
         });
       }, duration);
     },
-    []
+    [getToastPosition]
   );
+
+  // Clean up timeout on unmount
+  useEffect(() => {
+    return () => {
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
+    };
+  }, []);
 
   return {
     toastTitle,
