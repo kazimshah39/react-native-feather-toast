@@ -1,4 +1,3 @@
-// ToastRoot.tsx
 import React, { useEffect } from "react";
 import { View, KeyboardAvoidingView, Platform } from "react-native";
 import { Toast } from "./Toast";

@@ -18,7 +18,7 @@ A lightweight, customizable toast notification library for React Native.
 
 - 🪶 Lightweight with zero dependencies
 - 📱 Native animations using React Native's Animated API
-- 🎨 Beautiful, customizable UI with Feather icons
+- 🎨 Beautiful, customizable UI
 - 💪 Written in TypeScript
 - 🔝 Support for top and bottom positions
 - 📝 Optional description text
@@ -38,16 +38,6 @@ yarn add react-native-feather-toast
 The code is open source and available at [GitHub](https://github.com/kazimshah39/react-native-feather-toast/).
 
 Feel free to contribute by creating issues or submitting pull requests!
-
-### For Bare React Native Projects
-
-You'll need to install `@expo/vector-icons`:
-
-```bash
-npm install @expo/vector-icons
-# or
-yarn add @expo/vector-icons
-```
 
 ## 🚀 Basic Usage
 

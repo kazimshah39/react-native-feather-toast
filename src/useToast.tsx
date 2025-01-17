@@ -1,4 +1,4 @@
-import { useCallback, useRef, useState } from "react";
+import React, { useCallback, useRef, useState } from "react";
 import { Animated, Dimensions, Platform } from "react-native";
 import type { ToastConfig, ToastType } from "./types";
 

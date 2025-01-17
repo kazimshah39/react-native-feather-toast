@@ -1,9 +1,9 @@
 import React from "react";
 import { Animated, Text, View } from "react-native";
-import { Feather } from "@expo/vector-icons";
 import { ToastProps } from "./types";
 import { styles } from "./styles";
 import { getToastConfig } from "./toastConfig";
+import { Icons } from "./icons";
 
 export const Toast: React.FC<ToastProps> = ({
   title,
@@ -13,6 +13,7 @@ export const Toast: React.FC<ToastProps> = ({
   slideAnim,
 }) => {
   const config = getToastConfig(type);
+  const Icon = Icons[type] || Icons.info;
 
   return (
     <Animated.View
@@ -27,11 +28,7 @@ export const Toast: React.FC<ToastProps> = ({
     >
       <View style={styles.toastContent}>
         <View style={styles.iconContainer}>
-          <Feather
-            name={config.icon as any}
-            size={18}
-            color={config.iconColor}
-          />
+          <Icon color={config.iconColor} size={18} />
         </View>
         <View style={styles.textContainer}>
           <Text style={styles.toastText}>{title}</Text>

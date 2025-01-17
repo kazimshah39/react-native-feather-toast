@@ -1,6 +1,6 @@
 {
   "name": "react-native-feather-toast",
-  "version": "1.0.5",
+  "version": "1.0.9",
   "description": "A lightweight, customizable toast notification library for React Native.",
   "homepage": "https://github.com/kazimshah39/react-native-feather-toast#readme",
   "bugs": {
@@ -37,6 +37,6 @@
     "typescript": "^5.7.3"
   },
   "peerDependencies": {
-    "@expo/vector-icons": "^14.0.4"
+    "react-native-svg": "^15.11.1"
   }
 }
