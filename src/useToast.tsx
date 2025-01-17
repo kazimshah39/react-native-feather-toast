@@ -2,7 +2,7 @@ import React, { useCallback, useRef, useState, useEffect } from "react";
 import { Animated, Dimensions, Platform, StatusBar } from "react-native";
 import type { ToastConfig, ToastType } from "./types";
 
-const { height } = Dimensions.get("window");
+const { height, width } = Dimensions.get("window");
 
 export const useToast = () => {
   const fadeAnim = useRef(new Animated.Value(0)).current;
