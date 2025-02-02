@@ -23,6 +23,7 @@ A lightweight, customizable toast notification library for React Native.
 - 🔝 Support for top and bottom positions
 - 📝 Optional description text
 - ⚡ Simple imperative API
+- ✋ User-dismissible toasts with smooth animations
 - 🖼️ Works with modals (see Modal Usage section)
 
 ## 📦 Installation

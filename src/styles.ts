@@ -17,6 +17,7 @@ export const styles = StyleSheet.create({
     paddingVertical: 15,
     paddingHorizontal: 10,
     borderRadius: 12,
+    minHeight: 46,
     marginTop: Platform.OS === "ios" ? 50 : StatusBar.currentHeight,
     ...Platform.select({
       ios: {
@@ -54,5 +55,11 @@ export const styles = StyleSheet.create({
     fontSize: 12,
     marginTop: 4,
     lineHeight: 20,
+  },
+  dismissButton: {
+    padding: 8,
+    marginLeft: 8,
+    borderRadius: 20,
+    backgroundColor: "rgba(255, 255, 255, 0.1)",
   },
 });

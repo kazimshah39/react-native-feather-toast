@@ -13,6 +13,31 @@ export const useToast = () => {
   const [toastType, setToastType] = useState<ToastType>("info");
   const [isVisible, setIsVisible] = useState(false);
 
+  const handleDismiss = useCallback(() => {
+    // Clear any existing timeout
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+    }
+
+    // Animate out
+    Animated.parallel([
+      Animated.timing(fadeAnim, {
+        toValue: 0,
+        duration: 200,
+        useNativeDriver: true,
+      }),
+      Animated.timing(slideAnim, {
+        toValue: -100,
+        duration: 200,
+        useNativeDriver: true,
+      }),
+    ]).start(() => {
+      setToastTitle("");
+      setToastDescription("");
+      setIsVisible(false);
+    });
+  }, [fadeAnim, slideAnim]);
+
   // Calculate bottom position based on platform and screen dimensions
   const getToastPosition = useCallback((position: "top" | "bottom") => {
     if (position === "top") {
@@ -89,7 +114,6 @@ export const useToast = () => {
     [getToastPosition]
   );
 
-  // Clean up timeout on unmount
   useEffect(() => {
     return () => {
       if (timeoutRef.current) {
@@ -106,5 +130,6 @@ export const useToast = () => {
     fadeAnim,
     slideAnim,
     handleShowToast,
+    handleDismiss,
   };
 };

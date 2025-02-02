@@ -5,7 +5,6 @@ import { styles } from "./styles";
 import { useToast } from "./useToast";
 import type { ToastConfig } from "./types";
 
-// Create a proper event emitter for toast events
 class ToastEmitter {
   private static instance: ToastEmitter;
   private listeners: ((config: ToastConfig) => void)[] = [];
@@ -33,7 +32,6 @@ class ToastEmitter {
   }
 }
 
-// Export the show toast function that uses the emitter
 export function showToast(config: ToastConfig) {
   ToastEmitter.getInstance().emit(config);
 }
@@ -47,6 +45,7 @@ export const ToastRoot: React.FC = () => {
     fadeAnim,
     slideAnim,
     handleShowToast,
+    handleDismiss,
   } = useToast();
 
   useEffect(() => {
@@ -69,6 +68,7 @@ export const ToastRoot: React.FC = () => {
           type={toastType}
           fadeAnim={fadeAnim}
           slideAnim={slideAnim}
+          onDismiss={handleDismiss}
         />
       </KeyboardAvoidingView>
     </View>

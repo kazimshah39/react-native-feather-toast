@@ -16,4 +16,5 @@ export interface ToastProps {
   type: ToastType;
   fadeAnim: Animated.Value;
   slideAnim: Animated.Value;
+  onDismiss: () => void;
 }

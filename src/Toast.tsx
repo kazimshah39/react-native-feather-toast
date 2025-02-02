@@ -1,9 +1,9 @@
 import React from "react";
-import { Animated, Text, View } from "react-native";
 import { ToastProps } from "./types";
 import { styles } from "./styles";
 import { getToastConfig } from "./toastConfig";
 import { Icons } from "./icons";
+import { Animated, Text, View, TouchableOpacity } from "react-native";
 
 export const Toast: React.FC<ToastProps> = ({
   title,
@@ -11,6 +11,7 @@ export const Toast: React.FC<ToastProps> = ({
   type,
   fadeAnim,
   slideAnim,
+  onDismiss,
 }) => {
   const config = getToastConfig(type);
   const Icon = Icons[type] || Icons.info;
@@ -36,6 +37,9 @@ export const Toast: React.FC<ToastProps> = ({
             <Text style={styles.descriptionText}>{description}</Text>
           )}
         </View>
+        <TouchableOpacity onPress={onDismiss} style={styles.dismissButton}>
+          <Icons.close color={config.iconColor} size={14} />
+        </TouchableOpacity>
       </View>
     </Animated.View>
   );
